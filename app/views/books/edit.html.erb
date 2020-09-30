@@ -1,0 +1,22 @@
+<div class="content">
+  <h1 class="edit-heading">Editing Book</h1>
+  <div class="form-area">
+    <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
+    <%= render 'layouts/error_messages', book: @book %>
+    <div class="edit-box">
+      <label>Title</label>
+      <sapn class="field"><%= f.text_field :title %></sapn>
+    </div>
+    <div class="edit-box">
+      <label>Body</label>
+      <span class="field"><%= f.text_area :body %></span>
+    </div>
+    <sapn class="field"><%= f.submit 'Update Book' %></sapn>
+    <% end %>
+  </div>
+
+  <span><%=link_to "Show", book_path(@book.id) %> </span>
+  <span>|</span>
+  <span><%= link_to "Back", books_path %></span>
+
+</div>
